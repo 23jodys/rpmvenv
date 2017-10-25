@@ -21,3 +21,4 @@ script:
     - if [[ "$(python --version 2>&1)" =~ Python\ (2\.7.*|3\.[3-4].*) ]]; then pep8 rpmvenv/; else echo "Skipping PEP8 for $(python --version 2>&1)."; fi
     - if [[ "$(python --version 2>&1)" =~ Python\ (2\.7.*|3\.[3-4].*) ]]; then pyflakes rpmvenv/; else echo "Skipping PyFlakes for $(python --version 2>&1)."; fi
     - if [[ "${NO_STRIP}" == "1" ]]; then py.test --skip-binary-strip --python-git-url="https://github.com/kevinconway/rpmvenv_manylinux_issue.git" tests/; else py.test tests/; fi
+    - if [[ "${NO_STRIP}" == "0" ]]; then py.test --python-git-url="https://github.com/kevinconway/rpmvenv_manylinux_issue.git" tests/; else py.test tests/; fi
